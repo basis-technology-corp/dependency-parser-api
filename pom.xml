@@ -25,12 +25,12 @@
     <parent>
         <groupId>com.basistech</groupId>
         <artifactId>open-source-parent</artifactId>
-        <version>0.0.5</version>
+        <version>1.1.1</version>
     </parent>
     <prerequisites>
-        <maven>3.0.4</maven>
+        <maven>3.2.5</maven>
     </prerequisites>
-    <inceptionYear>2014</inceptionYear>
+    <inceptionYear>2016</inceptionYear>
     <url>http://basis-technology-corp.github.io/dependency-parser-api</url>
     <scm>
         <connection>scm:git:git@github.com:basis-technology-corp/dependency-parser-api.git</connection>
@@ -44,36 +44,10 @@
         </site>
     </distributionManagement>
     <dependencies>
-        <!-- the order here (hamcrest, hamcrest, mockito) is important. -->
         <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-library</artifactId>
-            <version>1.3</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.basistech</groupId>
-            <artifactId>pax-exam-test-composite</artifactId>
-            <version>0.0.7</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.osgi</groupId>
-            <artifactId>org.osgi.core</artifactId>
-            <version>5.0.0</version>
-            <scope>provided</scope>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.4</version>
         </dependency>
     </dependencies>
     <build>
