@@ -1,0 +1,3 @@
+-exportcontents: \
+	com.basistech.dpapi
+-sources: true
