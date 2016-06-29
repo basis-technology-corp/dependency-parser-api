@@ -17,7 +17,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dependency-parser-api</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <packaging>bundle</packaging>
     <description>A collection of classes used to communicate with
     dependency parsers.</description>
@@ -34,7 +34,7 @@
     <scm>
         <connection>scm:git:git@github.com:basis-technology-corp/dependency-parser-api.git</connection>
         <developerConnection>scm:git:git@github.com:basis-technology-corp/dependency-parser-api.git</developerConnection>
-        <tag>dependency-parser-api-0.0.1</tag>
+        <tag>HEAD</tag>
     </scm>
     <distributionManagement>
         <site>
