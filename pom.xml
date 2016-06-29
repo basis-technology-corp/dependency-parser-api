@@ -18,7 +18,6 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>dependency-parser-api</artifactId>
     <version>0.0.2-SNAPSHOT</version>
-    <packaging>bundle</packaging>
     <description>A collection of classes used to communicate with
     dependency parsers.</description>
     <parent>
@@ -85,74 +84,27 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <!-- because we're not dealing any tricky OSGi version
-                 issues, we can just grab our dependencies and filter
-                 down to get our bundles. -->
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>bnd-process</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.9</version>
-                <executions>
-                    <execution>
-                        <id>copy-bundles</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <outputDirectory>${project.build.directory}/bundles</outputDirectory>
-                            <!--
-                              Exclude the ones that are not OSGi
-                              components, plus OSGi itself.
-                          -->
-                            <excludeArtifactIds>bndlib,org.osgi.core</excludeArtifactIds>
-                            <excludeGroupIds>org.slf4j</excludeGroupIds>
-                            <includeScope>compile</includeScope>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.servicemix.tooling</groupId>
-                <artifactId>depends-maven-plugin</artifactId>
-                <version>1.2</version>
-                <executions>
-                    <execution>
-                        <id>generate-depends-file</id>
-                        <phase>generate-test-resources</phase>
-                        <goals>
-                            <goal>generate-depends-file</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
+                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <instructions>
-                    </instructions>
+                    <archive>
+                        <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.18</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                        <configuration>
-                            <systemPropertyVariables>
-                                <java.awt.headless>true</java.awt.headless>
-                                <project.build.directory>${project.build.directory}</project.build.directory>
-                                <project.version>${project.version}</project.version>
-                            </systemPropertyVariables>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
