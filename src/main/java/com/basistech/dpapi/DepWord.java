@@ -25,10 +25,14 @@ import java.util.Objects;
 public class DepWord {
     private final String word;
     private final String tag;
+    private final int startIndex;
+    private final int endIndex;
 
-    public DepWord(String word, String tag) {
+    public DepWord(String word, String tag, int startIndex, int endIndex) {
         this.word = word;
         this.tag = tag;
+        this.startIndex = startIndex;
+        this.endIndex = endIndex;
     }
 
     public String getWord() {
@@ -37,6 +41,14 @@ public class DepWord {
 
     public String getTag() {
         return tag;
+    }
+
+    public int getStartIndex() {
+        return startIndex;
+    }
+
+    public int getEndIndex() {
+        return endIndex;
     }
 
     @Override
@@ -48,10 +60,10 @@ public class DepWord {
             return false;
         }
         DepWord depWord = (DepWord) o;
+        // start index and end index?
         return Objects.equals(word, depWord.word)
                && Objects.equals(tag, depWord.tag);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(word, tag);
@@ -62,6 +74,8 @@ public class DepWord {
         return new ToStringBuilder(this)
                 .append("word", word)
                 .append("tag", tag)
+                .append("startIndex", startIndex)
+                .append("endIndex", endIndex)
                 .toString();
     }
 }

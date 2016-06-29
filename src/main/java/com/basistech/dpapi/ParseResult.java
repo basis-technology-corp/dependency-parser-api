@@ -36,5 +36,4 @@ public abstract class ParseResult {
     public List<Dependency> getDependenciesCCprocessed() {
         return getDependencies(DependencyType.CCprocessed, true);
     }
-
 }

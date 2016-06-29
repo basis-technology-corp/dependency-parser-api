@@ -22,10 +22,10 @@ import java.util.Objects;
  * dependencies point to these.
  */
 public class IndexedToken {
-    private final String word;
+    private final DepWord word;
     private final int index;
 
-    public IndexedToken(String word, int index) {
+    public IndexedToken(DepWord word, int index) {
         this.word = word;
         this.index = index;
     }
@@ -41,6 +41,18 @@ public class IndexedToken {
         IndexedToken that = (IndexedToken) o;
         return index == that.index
                 && Objects.equals(word, that.word);
+    }
+
+    public DepWord getDepWord() {
+        return word;
+    }
+
+    public String getWord() {
+        return word.getWord();
+    }
+
+    public int getIndex() {
+        return index;
     }
 
     @Override
