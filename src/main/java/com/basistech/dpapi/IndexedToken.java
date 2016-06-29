@@ -62,6 +62,6 @@ public class IndexedToken {
 
     @Override
     public String toString() {
-        return String.format("%s-%d", word, index);
+        return String.format("%s-%d", word.getWord(), index);
     }
 }
