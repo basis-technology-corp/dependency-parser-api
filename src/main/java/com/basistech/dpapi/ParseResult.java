@@ -28,13 +28,13 @@ public abstract class ParseResult {
         return taggedWords;
     }
 
-    public abstract List<Dependency> getTypedDependencies(DependencyType type, boolean includeExtras);
+    public abstract List<Dependency> getDependencies(DependencyType type, boolean includeExtras);
 
-    public List<Dependency> getTypedDependencies() {
-        return getTypedDependencies(DependencyType.Basic, true);
+    public List<Dependency> getDependencies() {
+        return getDependencies(DependencyType.Basic, true);
     }
-    public List<Dependency> getTypedDependenciesCCprocessed() {
-        return getTypedDependencies(DependencyType.CCprocessed, true);
+    public List<Dependency> getDependenciesCCprocessed() {
+        return getDependencies(DependencyType.CCprocessed, true);
     }
 
 }
