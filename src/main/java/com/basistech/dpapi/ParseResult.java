@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Results of a parse.
  */
-public abstract class DependencyParserResult {
+public abstract class ParseResult {
     protected List<DepWord> taggedWords;
 
     public List<DepWord> getTaggedWords() {

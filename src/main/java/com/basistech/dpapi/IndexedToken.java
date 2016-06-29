@@ -19,29 +19,15 @@ package com.basistech.dpapi;
 import java.util.Objects;
 
 /**
- * A dependency.
+ * dependencies point to these.
  */
-public class Dependency {
-    private final String relationship;
-    private final IndexedToken governor;
-    private final IndexedToken dependency;
+public class IndexedToken {
+    private final String word;
+    private final int index;
 
-    public Dependency(String relationship, IndexedToken governor, IndexedToken dependency) {
-        this.relationship = relationship;
-        this.governor = governor;
-        this.dependency = dependency;
-    }
-
-    public String getRelationship() {
-        return relationship;
-    }
-
-    public IndexedToken getGovernor() {
-        return governor;
-    }
-
-    public IndexedToken getDependency() {
-        return dependency;
+    public IndexedToken(String word, int index) {
+        this.word = word;
+        this.index = index;
     }
 
     @Override
@@ -52,20 +38,18 @@ public class Dependency {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Dependency that = (Dependency) o;
-        return governor == that.governor
-                && dependency == that.dependency
-                && Objects.equals(relationship, that.relationship);
+        IndexedToken that = (IndexedToken) o;
+        return index == that.index
+                && Objects.equals(word, that.word);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(relationship, governor, dependency);
+        return Objects.hash(word, index);
     }
 
     @Override
     public String toString() {
-        return String.format("%s(%s, %s)",
-                relationship, governor, dependency);
+        return String.format("%s-%d", word, index);
     }
 }

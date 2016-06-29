@@ -15,6 +15,7 @@
 */
 package com.basistech.dpapi;
 
+import com.basistech.rosette.dm.AnnotatedText;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
@@ -22,32 +23,33 @@ import java.util.List;
 /**
  * This is the public interface to the RELAX dependency parser.
  */
-public interface RelaxDependencyParser {
+public interface DependencyParser {
     /**
      * parses the input by applying a breaker, and tagger then dependency parser.
      * @param input CharSequence
      * @return a list of ParseResult
      */
-    List<DependencyParserResult> parse(CharSequence input);
+    List<ParseResult> parse(AnnotatedText input);
 
     /**
      * parses tagger results which should only contain a sentence.
      * @param input a list of TaggedWord from a sentence
      * @return ParseResult for the sentence
      */
-    DependencyParserResult parseSentence(List<DepWord> input);
-    DocumentParseResult parseDocument(CharSequence input);
+    ParseResult parseSentence(List<DepWord> input);
 
-    DependencyParserResult tagAndParseSentence(String input);
+    DocumentParseResult parseDocument(AnnotatedText input);
 
-    List<String> tokenizeSentence(String input);
+    ParseResult tagAndParseSentence(AnnotatedText input);
+
+    List<String> tokenizeSentence(AnnotatedText input);
 
     /**
      * parses tokens from a sentence; calls a tagger, then the dependency parser.
-     * @param input a list of HasWord
+     * @param input a list of tokens
      * @return ParseResult for the sentence
      */
-    DependencyParserResult tagAndParseSentence(List<String> input);
+    ParseResult tagAndParseSentence(List<String> input);
 
     /**
      * parses the input by applying a breaker, and tagger then dependency parser. The segmentation is returned along
@@ -56,5 +58,5 @@ public interface RelaxDependencyParser {
      * @param input input CharSequence
      * @return a list of Tagged Sentence and ParseResult  pairs.
      */
-    List<ImmutablePair<List<DepWord>, DependencyParserResult>>  segmentAndParseSentence(CharSequence input);
+    List<ImmutablePair<List<DepWord>, ParseResult>>  segmentAndParseSentence(AnnotatedText input);
 }

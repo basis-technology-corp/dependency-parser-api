@@ -20,16 +20,16 @@ import java.util.List;
 
 public class DocumentParseResult {
 
-    private final List<DependencyParserResult> getSentencesParseResults;
+    private final List<ParseResult> getSentencesParseResults;
     private final List<String> tokens;
 
-    public DocumentParseResult(List<DependencyParserResult> getSentencesParseResults,
+    public DocumentParseResult(List<ParseResult> getSentencesParseResults,
                                List<String> tokens) {
         this.getSentencesParseResults = getSentencesParseResults;
         this.tokens = tokens;
     }
 
-    public List<DependencyParserResult> getGetSentencesParseResults() {
+    public List<ParseResult> getGetSentencesParseResults() {
         return getSentencesParseResults;
     }
 
