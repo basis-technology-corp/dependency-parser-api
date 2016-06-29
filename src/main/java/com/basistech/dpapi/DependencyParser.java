@@ -16,6 +16,7 @@
 package com.basistech.dpapi;
 
 import com.basistech.rosette.dm.AnnotatedText;
+import com.basistech.rosette.dm.Token;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 
 import java.util.List;
@@ -42,14 +43,14 @@ public interface DependencyParser {
 
     ParseResult tagAndParseSentence(AnnotatedText input);
 
-    List<String> tokenizeSentence(AnnotatedText input);
+    List<Token> tokenizeSentence(AnnotatedText input);
 
     /**
      * parses tokens from a sentence; calls a tagger, then the dependency parser.
      * @param input a list of tokens
      * @return ParseResult for the sentence
      */
-    ParseResult tagAndParseSentence(List<String> input);
+    ParseResult tagAndParseSentence(List<Token> input);
 
     /**
      * parses the input by applying a breaker, and tagger then dependency parser. The segmentation is returned along
@@ -58,5 +59,5 @@ public interface DependencyParser {
      * @param input input CharSequence
      * @return a list of Tagged Sentence and ParseResult  pairs.
      */
-    List<ImmutablePair<List<DepWord>, ParseResult>>  segmentAndParseSentence(AnnotatedText input);
+    List<ImmutablePair<List<DepWord>, ParseResult>> segmentAndParseSentence(AnnotatedText input);
 }
