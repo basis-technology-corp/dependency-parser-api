@@ -13,20 +13,14 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
 package com.basistech.dpapi;
 
-import com.basistech.rosette.dm.AnnotatedText;
-
-import java.util.List;
+import com.basistech.util.LanguageCode;
 
 /**
- * This is the public interface to the RELAX dependency parser.
+ * create a parser.
  */
-public interface DependencyParser {
-    /**
-     * parses the input by applying a breaker, and tagger then dependency parser.
-     * @param input CharSequence
-     * @return a list of ParseResult, one per sentence.
-     */
-    List<ParseResult> parse(AnnotatedText input);
+public interface DependencyParserFactory {
+    DependencyParser create(LanguageCode language);
 }
