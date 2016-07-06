@@ -22,18 +22,12 @@ import java.util.List;
  * Results of a parse.
  */
 public abstract class ParseResult {
-    protected List<DepWord> taggedWords;
-
-    public List<DepWord> getTaggedWords() {
-        return taggedWords;
-    }
-
     public abstract List<Dependency> getDependencies(DependencyType type, boolean includeExtras);
 
-    public List<Dependency> getDependencies() {
+    public List<Dependency>  getDependencies() {
         return getDependencies(DependencyType.Basic, true);
     }
-    public List<Dependency> getDependenciesCCprocessed() {
+    public List<Dependency>  getDependenciesCCprocessed() {
         return getDependencies(DependencyType.CCprocessed, true);
     }
 }
