@@ -92,7 +92,6 @@ public class Dependency extends BaseAttribute {
          * Constructs a builder from the contents of an existing sentence.
          *
          * @param toCopy the object to copy
-         * @adm.ignore
          */
         public Builder(Dependency toCopy) {
             super(toCopy);
